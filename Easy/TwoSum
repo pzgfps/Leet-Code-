@@ -1,0 +1,20 @@
+/* Esse código em Java, serve para resolver o clássico LeetCode do TwoSum.
+   O desafio consiste em descobrir quais dos dois números de um 
+   array resultam no número alvo (target). */
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+     Map<Integer, Integer> numMap = new HashMap<>();    // Criação de um HashMap
+     int n = nums.length;                // Variável para o loop for
+
+     for(int i = 0; i < n; i++) {    // loop for para rodar o array uma vez, O(n)  (no pior dos casos percorre o array inteiro)
+        int complement = target - nums[i];    // Calculo para descobrir qual o valor é necessário ter no array para complementar
+        if(numMap.containsKey(complement)) {  // a variável [i]. Se tiver o valor de complemento ele retornará a posição do valor
+            return new int[]{numMap.get(complement), i};      // [i] e do complemento
+        }
+        numMap.put(nums[i], i);
+     }
+    return new int []{};
+    }
+}
